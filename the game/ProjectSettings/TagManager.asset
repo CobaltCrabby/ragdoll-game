@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Pressure Pad
+  - Falling Blocks
+  - Hammer
   layers:
   - Default
   - TransparentFX
@@ -18,8 +22,8 @@ TagManager:
   - Camera
   - Jump Pad
   - Main Camera
-  - 
-  - 
+  - Static Enemy
+  - Bullet
   - 
   - 
   - 

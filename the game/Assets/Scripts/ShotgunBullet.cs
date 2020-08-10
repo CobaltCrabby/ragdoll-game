@@ -7,9 +7,15 @@ public class ShotgunBullet : MonoBehaviour
 {
     public float spreadX, spreadZ, spreadY, speed, spread, bulletLife;
     private float bulletTimer = 0f;
-    private bool isMoving;
-    public Rigidbody RB;
-    public Camera cam;
+    public bool didCollide = false;
+    public ParticleSystem particles;
+    public LayerMask groundLayer;
+    private Rigidbody RB;
+    private Camera cam;
+
+    void Awake() {
+        particles.Stop();
+    }
 
     void Start(){
         bulletTimer = 0f;
@@ -23,10 +29,21 @@ public class ShotgunBullet : MonoBehaviour
     }
 
     void FixedUpdate() {
-        RB.AddForce(transform.forward * speed);
+        if (!didCollide) {
+            transform.position += transform.forward * speed;
+        }
         if (bulletTimer >= bulletLife) {
             Destroy(gameObject);
+            didCollide = false;
         }
         bulletTimer++;
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.transform.gameObject.tag == "Ground") {
+            print("move");
+            particles.Play();
+            didCollide = true;
+        }
     }
 }
