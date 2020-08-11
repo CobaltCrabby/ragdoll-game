@@ -5,22 +5,21 @@ using UnityEngine;
 public class HammerWeapon : MonoBehaviour
 {
     public Vector3 grapplePoint;
-    public LayerMask whatIsGrapple;
+    public LayerMask whatIsGrapple, enemyLayer;
     public Transform gunTip, cam, player;
-    public float hammerForce;
-    public bool isGrappling = false;
+    public float hammerForce, enemyGrappleForce;
+    public bool isEnemyGrappling, isRegularGrappling;
     public Rigidbody armRB;
+    public Rigidbody[] RB;
     public ParticleSystem particles;
     private LineRenderer lr;
-    private float maxDistance = 50;
+    private float maxDistance = 25;
     private SpringJoint joint;
-    private Rigidbody RB;
-    
+
     void Awake() {
         lr = GetComponent<LineRenderer>();
         particles = GetComponentInChildren<ParticleSystem>();
         armRB = player.gameObject.GetComponent<Rigidbody>();
-        RB = GetComponent<Rigidbody>();
     }
 
     void Start() {
@@ -35,6 +34,7 @@ public class HammerWeapon : MonoBehaviour
 
         else if (Input.GetMouseButtonUp(1)) {
             StopGrapple();
+            addGravity();
         }
 
         if (Input.GetKeyDown("q")) {
@@ -44,6 +44,11 @@ public class HammerWeapon : MonoBehaviour
         else if (Input.GetKeyUp("q")) {
             particles.Stop();
         }
+
+        if (isEnemyGrappling) {
+            Vector3 direction = Vector3.Normalize(grapplePoint - armRB.position);
+            armRB.AddForce(direction * enemyGrappleForce);
+        }
     }
 
     void LateUpdate() {
@@ -51,8 +56,14 @@ public class HammerWeapon : MonoBehaviour
     }
 
     void StartGrapple() {
-        if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hit, maxDistance, whatIsGrapple)) {
-            isGrappling = true;
+        if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hitEnemy, maxDistance, enemyLayer)) {
+            grapplePoint = hitEnemy.point;
+            isEnemyGrappling = true;
+            lr.positionCount = 2;
+            removeGravity();
+        }
+
+        else if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hit, maxDistance, whatIsGrapple)) {
             grapplePoint = hit.point;
             joint = player.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
@@ -69,24 +80,41 @@ public class HammerWeapon : MonoBehaviour
             joint.anchor += new Vector3(0f, 0.005f, 0f);
 
             lr.positionCount = 2;
+
+            isRegularGrappling = true;
         }
     }
 
     void DrawRope() {
-        if (!joint) return;
+        if (!isEnemyGrappling && !isRegularGrappling) return;
         lr.SetPosition(0, gunTip.position);
         lr.SetPosition(1, grapplePoint);
     }
 
-    void StopGrapple() {
+    public void StopGrapple() {
         transform.localEulerAngles = new Vector3(180f, 0f, 0f);
         lr.positionCount = 0;
-        isGrappling = false;
-        Destroy(joint);
+        isEnemyGrappling = false;
+        isRegularGrappling = false;
+        if (joint) {
+            Destroy(joint);
+        }
     }
 
     void SwingHammer() {
         particles.Play();
         armRB.AddForce(cam.forward * hammerForce);
+    }
+
+    void removeGravity() {
+        foreach (Rigidbody rb in RB) {
+            rb.useGravity = false;
+        }
+    }
+
+    void addGravity() {
+        foreach (Rigidbody rb in RB) {
+            rb.useGravity = true;
+        }
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 952888620}
   - component: {fileID: 952888622}
   - component: {fileID: 952888621}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Trail
   m_TagString: Hammer
   m_Icon: {fileID: 0}
@@ -4765,7 +4765,7 @@ GameObject:
   - component: {fileID: 5970120843524567182}
   - component: {fileID: 5130068975988380323}
   - component: {fileID: 128850901232880434}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cube.001
   m_TagString: Hammer
   m_Icon: {fileID: 0}
@@ -4845,7 +4845,7 @@ GameObject:
   - component: {fileID: 139041978637703238}
   - component: {fileID: 4457771298485439577}
   - component: {fileID: 1994348970419762870}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Sphere
   m_TagString: Hammer
   m_Icon: {fileID: 0}
@@ -4938,7 +4938,7 @@ GameObject:
   - component: {fileID: 4031401834162420722}
   - component: {fileID: 6014031356722084146}
   - component: {fileID: 599049868157469081}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cylinder.001
   m_TagString: Hammer
   m_Icon: {fileID: 0}
@@ -5017,7 +5017,7 @@ GameObject:
   - component: {fileID: 2640482831484954906}
   - component: {fileID: 4879628033735509747}
   - component: {fileID: 2081939229053898478}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cube.002
   m_TagString: Hammer
   m_Icon: {fileID: 0}
@@ -5096,7 +5096,7 @@ GameObject:
   - component: {fileID: 6968698802583987095}
   - component: {fileID: 4837284017978518668}
   - component: {fileID: 5429365343745127018}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Torus.004
   m_TagString: Hammer
   m_Icon: {fileID: 0}
@@ -8250,7 +8250,7 @@ GameObject:
   - component: {fileID: 2506793434739098539}
   - component: {fileID: 2354600988090795558}
   - component: {fileID: 2031759805234790459}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Torus.001
   m_TagString: Hammer
   m_Icon: {fileID: 0}
@@ -8329,7 +8329,7 @@ GameObject:
   - component: {fileID: 4100113202839333842}
   - component: {fileID: 5399993192711844842}
   - component: {fileID: 3900168859344629841}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Icosphere
   m_TagString: Hammer
   m_Icon: {fileID: 0}
@@ -8408,7 +8408,7 @@ GameObject:
   - component: {fileID: 3912245327736910610}
   - component: {fileID: 2308603318773862758}
   - component: {fileID: 685172032393322492}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cylinder
   m_TagString: Hammer
   m_Icon: {fileID: 0}
@@ -8487,7 +8487,7 @@ GameObject:
   - component: {fileID: 6452176127362848173}
   - component: {fileID: 2339599734289376051}
   - component: {fileID: 6156948988734406636}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cube
   m_TagString: Hammer
   m_Icon: {fileID: 0}
@@ -8569,7 +8569,7 @@ GameObject:
   - component: {fileID: 7399636556060464244}
   - component: {fileID: 7399636556060464245}
   - component: {fileID: 7399636556060464243}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: hammer3
   m_TagString: Hammer
   m_Icon: {fileID: 0}
@@ -8616,12 +8616,29 @@ MonoBehaviour:
   whatIsGrapple:
     serializedVersion: 2
     m_Bits: 256
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8192
   gunTip: {fileID: 2506793434739098539}
   cam: {fileID: 0}
   player: {fileID: 4595276845891087697}
   hammerForce: 2000
-  isGrappling: 0
+  enemyGrappleForce: 100
+  isEnemyGrappling: 0
+  isRegularGrappling: 0
   armRB: {fileID: 0}
+  RB:
+  - {fileID: 4596907010181012043}
+  - {fileID: 4596907010176509709}
+  - {fileID: 4596907009170546670}
+  - {fileID: 4596907010108977590}
+  - {fileID: 4596907009679812487}
+  - {fileID: 4596907008481743106}
+  - {fileID: 4596907010018675051}
+  - {fileID: 4596907008335333863}
+  - {fileID: 4596907008857123991}
+  - {fileID: 4596907009260548838}
+  - {fileID: 4596907009584450630}
   particles: {fileID: 0}
 --- !u!65 &7399636556060464245
 BoxCollider:
