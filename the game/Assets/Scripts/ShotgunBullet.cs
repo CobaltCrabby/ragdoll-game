@@ -41,7 +41,6 @@ public class ShotgunBullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.transform.gameObject.tag == "Ground") {
-            print("move");
             particles.Play();
             didCollide = true;
         }

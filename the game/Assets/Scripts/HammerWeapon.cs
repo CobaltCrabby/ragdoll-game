@@ -7,7 +7,7 @@ public class HammerWeapon : MonoBehaviour
     public Vector3 grapplePoint;
     public LayerMask whatIsGrapple, enemyLayer;
     public Transform gunTip, cam, player;
-    public float hammerForce, enemyGrappleForce;
+    public float hammerForce, enemyGrappleForce, maxForce;
     public bool isEnemyGrappling, isRegularGrappling;
     public Rigidbody armRB;
     public Rigidbody[] RB;
@@ -47,7 +47,9 @@ public class HammerWeapon : MonoBehaviour
 
         if (isEnemyGrappling) {
             Vector3 direction = Vector3.Normalize(grapplePoint - armRB.position);
-            armRB.AddForce(direction * enemyGrappleForce);
+            if (armRB.velocity.magnitude <= maxForce) {
+                armRB.AddForce(direction * enemyGrappleForce);
+            }
         }
     }
 

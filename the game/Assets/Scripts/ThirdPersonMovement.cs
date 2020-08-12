@@ -50,7 +50,9 @@ public class ThirdPersonMovement : MonoBehaviour {
             RB.velocity += Vector3.up * jumpForce;
             jumpCooldown = 0;
         }
+    }
 
+    void LateUpdate() {
         cameraFollow.position = transform.position + new Vector3(0, 0.5f, 0);
     }
 }

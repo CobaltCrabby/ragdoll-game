@@ -26,9 +26,9 @@ public class EnemyCollider : MonoBehaviour
             KillEnemy();
             hammerWeapon.StopGrapple();
             foreach (Rigidbody rb in enemy1Script.rigidbodys) {
-                rb.velocity = Vector3.up - Vector3.up;
+                rb.velocity = new Vector3(-0, -0, -0);
             }
-            hips.velocity = Vector3.up * 40;
+            hips.velocity = Vector3.up * 60;
         }
         
         else if (collision.collider.name == "hammer3" && hammerWeapon.particles.isPlaying) {
@@ -37,6 +37,7 @@ public class EnemyCollider : MonoBehaviour
     }
 
     void KillEnemy() {
+        enemy1Script.isDead = true;
         enemy1Script.animator.enabled = false;
 
         foreach (Rigidbody rb in enemy1Script.rigidbodys) {

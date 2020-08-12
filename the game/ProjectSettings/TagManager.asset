@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Pressure Pad
   - Falling Blocks
   - Hammer
+  - Shootable
   layers:
   - Default
   - TransparentFX
