@@ -1,26 +1,31 @@
-﻿using System.Collections;
+﻿using Cinemachine;
+using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
-{
+public class EnemyBullet : MonoBehaviour {
     public float speed;
     private float bulletTimer = 0;
     public float bulletLife = 100;
     public GameObject bullet;
+    private ThirdPersonMovement TPM;
     private Transform player;
     private ParticleSystem particles;
-    private bool didCollide;
+    private PlayerHealth playerHealth;
+    private bool didCollide, collideBool;
 
-    void Start () {
+    void Start() {
         particles = GetComponentInChildren<ParticleSystem>();
         player = FindObjectOfType<ThirdPersonMovement>().transform;
+        playerHealth = FindObjectOfType<PlayerHealth>();
+        TPM = FindObjectOfType<ThirdPersonMovement>();
         particles.Stop();
         transform.LookAt(player);
     }
 
-    void FixedUpdate(){
+    void FixedUpdate() {
         if (!didCollide) {
             transform.position += transform.forward * speed;
         }
@@ -30,14 +35,30 @@ public class EnemyBullet : MonoBehaviour
         bulletTimer++;
     }
 
-    void OnTriggerEnter(Collider other) {
-        if (other.tag == "Shootable") {
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Shootable") {
+
             particles.Play();
             Destroy(bullet);
             didCollide = true;
-            if (other.gameObject.layer == 9) {
-                print("player hit");
+
+            if (collision.gameObject.layer == 9 && !collideBool) {
+                StartCoroutine(collideBoolTimer());
+                playerHealth.takeDamage(1);
+                StartCoroutine(TPM.cameraShake(0.25f, 0.75f));
+            }
+
+            else if (Vector3.Distance(collision.GetContact(0).point, TPM.transform.position) < 0.4f && !collideBool) {
+                StartCoroutine(collideBoolTimer());
+                playerHealth.takeDamage(1);
+                StartCoroutine(TPM.cameraShake(1f, 1f));
             }
         }
+    }
+
+    IEnumerator collideBoolTimer() {
+        collideBool = true;
+        yield return new WaitForSeconds(0.5f);
+        collideBool = false;
     }
 }

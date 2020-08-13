@@ -1,5 +1,79 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &874107287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874107288}
+  - component: {fileID: 874107290}
+  - component: {fileID: 874107289}
+  m_Layer: 9
+  m_Name: Fill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &874107288
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874107287}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1195573843}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &874107290
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874107287}
+  m_CullTransparentMesh: 0
+--- !u!114 &874107289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874107287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.06987041, b: 0, a: 0.74509805}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &952888619
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,7 +87,7 @@ GameObject:
   - component: {fileID: 952888621}
   m_Layer: 9
   m_Name: Trail
-  m_TagString: Hammer
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4754,6 +4828,204 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &1195573842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1195573843}
+  m_Layer: 9
+  m_Name: Fill Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1195573843
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195573842}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 874107288}
+  m_Father: {fileID: 1716452763}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1286688452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1286688453}
+  - component: {fileID: 1286688455}
+  - component: {fileID: 1286688454}
+  m_Layer: 9
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1286688453
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286688452}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1716452763}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1286688455
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286688452}
+  m_CullTransparentMesh: 0
+--- !u!114 &1286688454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286688452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0.69411767}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1716452762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1716452763}
+  - component: {fileID: 1716452764}
+  m_Layer: 9
+  m_Name: Slider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1716452763
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716452762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1286688453}
+  - {fileID: 1195573843}
+  m_Father: {fileID: 4596907009721056838}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 200, y: 80}
+  m_SizeDelta: {x: 250, y: 125}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1716452764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716452762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 0
+  m_TargetGraphic: {fileID: 0}
+  m_FillRect: {fileID: 874107288}
+  m_HandleRect: {fileID: 0}
+  m_Direction: 0
+  m_MinValue: 0
+  m_MaxValue: 5
+  m_WholeNumbers: 0
+  m_Value: 5
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1344272164079069491
 GameObject:
   m_ObjectHideFlags: 0
@@ -4767,7 +5039,7 @@ GameObject:
   - component: {fileID: 128850901232880434}
   m_Layer: 9
   m_Name: Cube.001
-  m_TagString: Hammer
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4847,7 +5119,7 @@ GameObject:
   - component: {fileID: 1994348970419762870}
   m_Layer: 9
   m_Name: Sphere
-  m_TagString: Hammer
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4940,7 +5212,7 @@ GameObject:
   - component: {fileID: 599049868157469081}
   m_Layer: 9
   m_Name: Cylinder.001
-  m_TagString: Hammer
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5019,7 +5291,7 @@ GameObject:
   - component: {fileID: 2081939229053898478}
   m_Layer: 9
   m_Name: Cube.002
-  m_TagString: Hammer
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5098,7 +5370,7 @@ GameObject:
   - component: {fileID: 5429365343745127018}
   m_Layer: 9
   m_Name: Torus.004
-  m_TagString: Hammer
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5175,7 +5447,7 @@ GameObject:
   - component: {fileID: 4601535125225728961}
   m_Layer: 9
   m_Name: toe.L_end
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5314,7 +5586,7 @@ GameObject:
   - component: {fileID: 4595344654952551241}
   m_Layer: 9
   m_Name: middleIntermediate.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5345,7 +5617,7 @@ GameObject:
   - component: {fileID: 4595293576037549767}
   m_Layer: 9
   m_Name: thumbDistal.L_end
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5375,7 +5647,7 @@ GameObject:
   - component: {fileID: 4594818005376950713}
   m_Layer: 9
   m_Name: chest.Upper
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5408,7 +5680,7 @@ GameObject:
   - component: {fileID: 4595140747899383113}
   m_Layer: 9
   m_Name: indexDistal.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5439,7 +5711,7 @@ GameObject:
   - component: {fileID: 4594951318061818047}
   m_Layer: 9
   m_Name: hand.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5473,7 +5745,7 @@ GameObject:
   - component: {fileID: 4601366372110761099}
   m_Layer: 9
   m_Name: hand.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5507,7 +5779,7 @@ GameObject:
   - component: {fileID: 4596907009156190756}
   - component: {fileID: 4596907009156190757}
   m_Layer: 9
-  m_Name: Image
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5630,6 +5902,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4596907009156190762}
+  - {fileID: 1716452763}
   m_Father: {fileID: 4601396532248790699}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5671,10 +5944,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 0.7
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5816,6 +6089,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4601396532248790699}
+  - component: {fileID: 2083477862}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -5840,6 +6114,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2083477862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4597342052211651493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db057c200d419b479adbd3ace462a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4597342461086655681
 GameObject:
   m_ObjectHideFlags: 0
@@ -5851,7 +6137,7 @@ GameObject:
   - component: {fileID: 4595322242132564967}
   m_Layer: 9
   m_Name: eye.L_end
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5881,7 +6167,7 @@ GameObject:
   - component: {fileID: 4601406791947503453}
   m_Layer: 9
   m_Name: indexIntermediate.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6021,7 +6307,7 @@ GameObject:
   - component: {fileID: 4601230866488661925}
   m_Layer: 9
   m_Name: middleIntermediate.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6052,7 +6338,7 @@ GameObject:
   - component: {fileID: 4595076941108235749}
   m_Layer: 9
   m_Name: neck
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6083,7 +6369,7 @@ GameObject:
   - component: {fileID: 4601212341297613677}
   m_Layer: 9
   m_Name: Generic Man
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6117,7 +6403,7 @@ GameObject:
   - component: {fileID: 4596907009584450631}
   m_Layer: 9
   m_Name: head
-  m_TagString: Player
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6224,7 +6510,7 @@ GameObject:
   - component: {fileID: 4601538051787131287}
   m_Layer: 9
   m_Name: toe.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6255,7 +6541,7 @@ GameObject:
   - component: {fileID: 4595071271650356601}
   m_Layer: 9
   m_Name: middleProximal.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6286,7 +6572,7 @@ GameObject:
   - component: {fileID: 4601001790550102321}
   m_Layer: 9
   m_Name: foot.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6317,7 +6603,7 @@ GameObject:
   - component: {fileID: 4601551397092539991}
   m_Layer: 9
   m_Name: thumbProximal.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6348,7 +6634,7 @@ GameObject:
   - component: {fileID: 4601289336146442051}
   m_Layer: 9
   m_Name: thumbDistal.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6596,7 +6882,7 @@ GameObject:
   - component: {fileID: 4595094307025388997}
   m_Layer: 9
   m_Name: middleDistal.R_end
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6626,7 +6912,7 @@ GameObject:
   - component: {fileID: 4595031205814660445}
   m_Layer: 9
   m_Name: thumbIntermediate.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6657,7 +6943,7 @@ GameObject:
   - component: {fileID: 4595261886767302255}
   m_Layer: 9
   m_Name: indexProximal.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6797,7 +7083,7 @@ GameObject:
   - component: {fileID: 4595132328884666077}
   m_Layer: 9
   m_Name: indexDistal.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6828,7 +7114,7 @@ GameObject:
   - component: {fileID: 4594923297927635723}
   m_Layer: 9
   m_Name: middleDistal.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6968,7 +7254,7 @@ GameObject:
   - component: {fileID: 4595254811269689363}
   m_Layer: 9
   m_Name: eye.R_end
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7216,7 +7502,7 @@ GameObject:
   - component: {fileID: 4601509588970202505}
   m_Layer: 9
   m_Name: indexDistal.L_end
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7246,7 +7532,7 @@ GameObject:
   - component: {fileID: 4595242566027727457}
   m_Layer: 9
   m_Name: middleProximal.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7277,7 +7563,7 @@ GameObject:
   - component: {fileID: 4601525482200760111}
   m_Layer: 9
   m_Name: collarbone.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7308,7 +7594,7 @@ GameObject:
   - component: {fileID: 4601211635428059947}
   m_Layer: 9
   m_Name: foot.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7339,7 +7625,7 @@ GameObject:
   - component: {fileID: 4601046846405906563}
   m_Layer: 9
   m_Name: thumbIntermediate.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7370,7 +7656,7 @@ GameObject:
   - component: {fileID: 4595083352324263579}
   m_Layer: 9
   m_Name: jaw
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7529,7 +7815,7 @@ GameObject:
   - component: {fileID: 4601358695342060441}
   m_Layer: 9
   m_Name: toe.R_end
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7685,7 +7971,7 @@ GameObject:
   - component: {fileID: 4600993152472158781}
   m_Layer: 9
   m_Name: thumbDistal.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7716,7 +8002,7 @@ GameObject:
   - component: {fileID: 4594902062215749495}
   m_Layer: 9
   m_Name: collarbone.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7747,7 +8033,7 @@ GameObject:
   - component: {fileID: 4595117079890856349}
   m_Layer: 9
   m_Name: indexIntermediate.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7778,7 +8064,7 @@ GameObject:
   - component: {fileID: 4601248851437082077}
   m_Layer: 9
   m_Name: thumbProximal.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7809,7 +8095,7 @@ GameObject:
   - component: {fileID: 4601412069258757805}
   m_Layer: 9
   m_Name: eye.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7840,7 +8126,7 @@ GameObject:
   - component: {fileID: 4595072978050777621}
   m_Layer: 9
   m_Name: jaw_end
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7870,7 +8156,7 @@ GameObject:
   - component: {fileID: 4595052515492176231}
   m_Layer: 9
   m_Name: chest
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7901,7 +8187,7 @@ GameObject:
   - component: {fileID: 4601006100454749233}
   m_Layer: 9
   m_Name: middleDistal.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8003,6 +8289,7 @@ MonoBehaviour:
   raycastDistance: 1
   jumpForce: 40
   cameraFollow: {fileID: 4596907009486083620}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &4598051216862750939
 GameObject:
   m_ObjectHideFlags: 0
@@ -8067,7 +8354,7 @@ GameObject:
   - component: {fileID: 4594934500472798565}
   m_Layer: 9
   m_Name: thumbDistal.R_end
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8097,7 +8384,7 @@ GameObject:
   - component: {fileID: 4601301416461957959}
   m_Layer: 9
   m_Name: toe.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8128,7 +8415,7 @@ GameObject:
   - component: {fileID: 4601244225688281949}
   m_Layer: 9
   m_Name: indexDistal.R_end
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8158,7 +8445,7 @@ GameObject:
   - component: {fileID: 4595037563697141521}
   m_Layer: 9
   m_Name: indexProximal.L
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8189,7 +8476,7 @@ GameObject:
   - component: {fileID: 4601105766213593913}
   m_Layer: 9
   m_Name: middleDistal.L_end
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8219,7 +8506,7 @@ GameObject:
   - component: {fileID: 4601502069437902403}
   m_Layer: 9
   m_Name: eye.R
-  m_TagString: Untagged
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8252,7 +8539,7 @@ GameObject:
   - component: {fileID: 2031759805234790459}
   m_Layer: 9
   m_Name: Torus.001
-  m_TagString: Hammer
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8331,7 +8618,7 @@ GameObject:
   - component: {fileID: 3900168859344629841}
   m_Layer: 9
   m_Name: Icosphere
-  m_TagString: Hammer
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8410,7 +8697,7 @@ GameObject:
   - component: {fileID: 685172032393322492}
   m_Layer: 9
   m_Name: Cylinder
-  m_TagString: Hammer
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8489,7 +8776,7 @@ GameObject:
   - component: {fileID: 6156948988734406636}
   m_Layer: 9
   m_Name: Cube
-  m_TagString: Hammer
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8569,9 +8856,10 @@ GameObject:
   - component: {fileID: 7399636556060464244}
   - component: {fileID: 7399636556060464245}
   - component: {fileID: 7399636556060464243}
+  - component: {fileID: 371768002}
   m_Layer: 9
   m_Name: hammer3
-  m_TagString: Hammer
+  m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8625,8 +8913,10 @@ MonoBehaviour:
   hammerForce: 2000
   enemyGrappleForce: 150
   maxForce: 20
+  retractingSpeed: 0.01
   isEnemyGrappling: 0
   isRegularGrappling: 0
+  isRetracting: 0
   armRB: {fileID: 0}
   RB:
   - {fileID: 4596907010181012043}
@@ -8693,9 +8983,7 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  m_Positions: []
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.02
@@ -8751,3 +9039,46 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &371768002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399636556060464242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8030f2bf9dbd014cba958b39dd74e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grapplingGun: {fileID: 7399636556060464244}
+  quality: 500
+  damper: 14
+  strength: 800
+  velocity: 15
+  waveCount: 3
+  waveHeight: 2
+  affectCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 4.624821
+      outSlope: 4.624821
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.015894417
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

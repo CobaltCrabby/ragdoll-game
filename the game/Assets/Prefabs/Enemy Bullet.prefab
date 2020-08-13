@@ -4801,7 +4801,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  bulletTimer: 0
   bulletLife: 120
   bullet: {fileID: 8113555017072245344}
 --- !u!65 &7057986463545633529
@@ -4812,10 +4811,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8113555015971721067}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.03, y: 0.03, z: 0.03}
+  m_Size: {x: 0.04, y: 0.04, z: 0.04}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8113555017072245344
 GameObject:

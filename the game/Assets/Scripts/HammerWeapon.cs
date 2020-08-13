@@ -7,8 +7,8 @@ public class HammerWeapon : MonoBehaviour
     public Vector3 grapplePoint;
     public LayerMask whatIsGrapple, enemyLayer;
     public Transform gunTip, cam, player;
-    public float hammerForce, enemyGrappleForce, maxForce;
-    public bool isEnemyGrappling, isRegularGrappling;
+    public float hammerForce, enemyGrappleForce, maxForce, retractingSpeed;
+    public bool isEnemyGrappling, isRegularGrappling, isRetracting;
     public Rigidbody armRB;
     public Rigidbody[] RB;
     public ParticleSystem particles;
@@ -35,6 +35,7 @@ public class HammerWeapon : MonoBehaviour
         else if (Input.GetMouseButtonUp(1)) {
             StopGrapple();
             addGravity();
+            isRetracting = true;
         }
 
         if (Input.GetKeyDown("q")) {
@@ -53,15 +54,10 @@ public class HammerWeapon : MonoBehaviour
         }
     }
 
-    void LateUpdate() {
-        DrawRope();
-    }
-
     void StartGrapple() {
         if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hitEnemy, maxDistance, enemyLayer)) {
             grapplePoint = hitEnemy.point;
             isEnemyGrappling = true;
-            lr.positionCount = 2;
             removeGravity();
         }
 
@@ -81,21 +77,13 @@ public class HammerWeapon : MonoBehaviour
             joint.massScale = 1.2f;
             joint.anchor += new Vector3(0f, 0.005f, 0f);
 
-            lr.positionCount = 2;
-
             isRegularGrappling = true;
         }
     }
 
-    void DrawRope() {
-        if (!isEnemyGrappling && !isRegularGrappling) return;
-        lr.SetPosition(0, gunTip.position);
-        lr.SetPosition(1, grapplePoint);
-    }
 
     public void StopGrapple() {
         transform.localEulerAngles = new Vector3(180f, 0f, 0f);
-        lr.positionCount = 0;
         isEnemyGrappling = false;
         isRegularGrappling = false;
         if (joint) {

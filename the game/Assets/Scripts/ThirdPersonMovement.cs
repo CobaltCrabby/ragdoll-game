@@ -8,15 +8,19 @@ public class ThirdPersonMovement : MonoBehaviour {
 
     public float speed, maxSpeed, raycastDistance, jumpForce;
     public Transform cameraFollow;
+    public Vector3 offset;
+    private HammerWeapon hammerWeapon;
     private Animator blocksAnim;
     private Rigidbody RB;
     private float jumpCooldown;
     private LayerMask groundLayer;
     private Camera cam;
+    private Vector3 velocity;
 
     void Start(){
         Cursor.lockState = CursorLockMode.Locked;
         groundLayer = 1 << 8;
+        hammerWeapon = FindObjectOfType<HammerWeapon>();
         RB = GetComponent<Rigidbody>();
         cam = FindObjectOfType<Camera>();
     }
@@ -31,7 +35,7 @@ public class ThirdPersonMovement : MonoBehaviour {
         direction = Quaternion.AngleAxis(cam.transform.rotation.eulerAngles.y, Vector3.up) * direction;
 
         //apply force if less than maxspeed
-        if (RB.velocity.magnitude <= maxSpeed) {
+        if (RB.velocity.magnitude <= maxSpeed && !hammerWeapon.isEnemyGrappling) {
             RB.velocity += direction.normalized * speed;
         }
     }
@@ -52,7 +56,26 @@ public class ThirdPersonMovement : MonoBehaviour {
         }
     }
 
+    //update camera position
     void LateUpdate() {
-        cameraFollow.position = transform.position + new Vector3(0, 0.5f, 0);
+        cameraFollow.position = transform.position + new Vector3(0, 0.5f, 0) + offset;
+    }
+
+    public IEnumerator cameraShake(float duration, float magnitude) {
+
+        float elapsed = 0f;
+
+        while (elapsed < duration) {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            offset = Vector3.SmoothDamp(offset, new Vector3(x, y, 0f), ref velocity, 0.1f);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        offset = Vector3.SmoothDamp(offset, Vector3.zero, ref velocity, 0.1f);
     }
 }
