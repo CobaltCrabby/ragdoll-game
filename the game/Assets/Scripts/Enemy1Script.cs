@@ -9,7 +9,6 @@ public class Enemy1Script : MonoBehaviour
 {
     public bool isDead, didSee;
     public Rigidbody[] rigidbodys;
-    public HammerWeapon hammer;
     public Animator animator;
 
     void Start() {

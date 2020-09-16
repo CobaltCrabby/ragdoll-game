@@ -4,9 +4,11 @@ using UnityEditor;
 using UnityEngine;
 
 public class AnimateGrapple : MonoBehaviour {
+    
     private Spring spring;
     private LineRenderer lr;
     private Vector3 currentGrapplePosition;
+
     public HammerWeapon grapplingGun;
     public int quality;
     public float damper;
@@ -33,7 +35,7 @@ public class AnimateGrapple : MonoBehaviour {
             lr.positionCount = quality + 1;
         }
 
-        else if (!grapplingGun.isRegularGrappling && !grapplingGun.isEnemyGrappling && !grapplingGun.isRetracting) {
+        else if (!grapplingGun.isRegularGrappling && !grapplingGun.isEnemyGrappling && !grapplingGun.isRetracting && !grapplingGun.isDirectGrappling) {
             currentGrapplePosition = grapplingGun.gunTip.position;
             spring.Reset();
             if (lr.positionCount > 0)
@@ -69,12 +71,24 @@ public class AnimateGrapple : MonoBehaviour {
             currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, grapplePoint, Time.deltaTime * 12f);
         }
 
-        for (var i = 0; i < quality + 1; i++) {
-            var delta = i / (float)quality;
-            var offset = up * waveHeight * Mathf.Sin(delta * waveCount * Mathf.PI) * spring.Value *
-                         affectCurve.Evaluate(delta);
+        if (grapplingGun.isRetracting) {
+            for (var i = 0; i < quality + 1; i++) {
+                var delta = i / (float)quality;
+                var offset = up * (waveHeight / 4) * Mathf.Sin(delta * waveCount * Mathf.PI) * spring.Value *
+                affectCurve.Evaluate(delta);
 
-            lr.SetPosition(i, Vector3.Lerp(gunTipPosition, currentGrapplePosition, delta) + offset);
+                lr.SetPosition(i, Vector3.Lerp(gunTipPosition, currentGrapplePosition, delta) + offset);
+            }
+        }
+
+        else {
+            for (var i = 0; i < quality + 1; i++) {
+                var delta = i / (float)quality;
+                var offset = up * waveHeight * Mathf.Sin(delta * waveCount * Mathf.PI) * spring.Value *
+                affectCurve.Evaluate(delta);
+
+                lr.SetPosition(i, Vector3.Lerp(gunTipPosition, currentGrapplePosition, delta) + offset);
+            }
         }
     }
 }

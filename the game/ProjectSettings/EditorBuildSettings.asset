@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 82c48d7308290ef46a94637b4c1f8a08
+  - enabled: 1
+    path: Assets/Scenes/BabySteps.unity
+    guid: effa741a1f71b5641ba73271dd5941f5
+  - enabled: 1
+    path: Assets/Scenes/MovingAlong.unity
+    guid: 5b07841406a091441a0ee520b68d71dd
+  - enabled: 1
+    path: Assets/Scenes/RampingItUp.unity
+    guid: e63869bbc7b064e4fbaaa69dd74894ba
+  - enabled: 1
+    path: Assets/Scenes/SlidingThrough.unity
+    guid: d390aa00de5f04245a496dfdc002a55b
+  - enabled: 1
+    path: Assets/Scenes/RisingUp.unity
+    guid: 56e81986ddf943c479f10b383c307200
   m_configObjects: {}

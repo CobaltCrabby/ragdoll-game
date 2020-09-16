@@ -1,24 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.ProBuilder;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyCollider : MonoBehaviour
 {
     private Rigidbody RB;
     private Rigidbody hips;
-    private ThirdPersonMovement TPC;
+    private ThirdPersonMovement TPM;
     private HammerWeapon hammerWeapon;
     private Enemy1Script enemy1Script;
+    private bool isDead;
     private float force = 5f;
 
     void Start() {
         RB = GetComponent<Rigidbody>();
         hammerWeapon = FindObjectOfType<HammerWeapon>();
         enemy1Script = GetComponentInParent<Enemy1Script>();
-        TPC = FindObjectOfType<ThirdPersonMovement>();
-        hips = TPC.gameObject.GetComponent<Rigidbody>();
+        TPM = FindObjectOfType<ThirdPersonMovement>();
+        hips = TPM.gameObject.GetComponent<Rigidbody>();
+        if (SceneManager.GetActiveScene().buildIndex == 0) {
+            foreach (Rigidbody rb in enemy1Script.rigidbodys) {
+                rb.isKinematic = false;
+            }
+        }
     }
 
     void OnCollisionEnter(Collision collision) {
@@ -26,13 +29,22 @@ public class EnemyCollider : MonoBehaviour
             KillEnemy();
             hammerWeapon.StopGrapple();
             foreach (Rigidbody rb in enemy1Script.rigidbodys) {
-                rb.velocity = new Vector3(-0, -0, -0);
+                rb.velocity = Vector3.zero;
             }
-            hips.velocity = Vector3.up * 60;
+            hammerWeapon.ResetVelocity();
+            hips.velocity = Vector3.up * 30;
         }
         
         else if (collision.collider.name == "hammer3" && hammerWeapon.particles.isPlaying) {
             KillEnemy();
+        }
+    }
+
+    void Update() {
+        if (Vector3.Distance(transform.position, hammerWeapon.transform.position) <= 0.2 && !isDead && hammerWeapon.isThrowing) {
+            KillEnemy();
+            hammerWeapon.hitThrow = true;
+            isDead = true;
         }
     }
 
@@ -43,17 +55,6 @@ public class EnemyCollider : MonoBehaviour
         foreach (Rigidbody rb in enemy1Script.rigidbodys) {
             rb.isKinematic = false;
         }
-
-        if ((hammerWeapon.armRB.velocity * force).magnitude < 25) {
-            RB.velocity = (hammerWeapon.armRB.velocity * force * 2f);
-        }
-
-        else if ((hammerWeapon.armRB.velocity * force).magnitude > 40) {
-            RB.velocity = (hammerWeapon.armRB.velocity * force * 0.75f);
-        }
-
-        else {
-            RB.velocity = (hammerWeapon.armRB.velocity * force);
-        }
+        RB.velocity = hammerWeapon.armRB.velocity * force;
     }
 }

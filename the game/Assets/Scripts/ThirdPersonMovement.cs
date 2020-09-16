@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -9,13 +10,15 @@ public class ThirdPersonMovement : MonoBehaviour {
     public float speed, maxSpeed, raycastDistance, jumpForce;
     public Transform cameraFollow;
     public Vector3 offset;
+    public Rigidbody[] rigidbodies;
+    public bool ifHammer;
     private HammerWeapon hammerWeapon;
     private Animator blocksAnim;
     private Rigidbody RB;
     private float jumpCooldown;
     private LayerMask groundLayer;
     private Camera cam;
-    private Vector3 velocity;
+    private Vector3 velocity, zeroVelocity;
 
     void Start(){
         Cursor.lockState = CursorLockMode.Locked;
@@ -35,7 +38,7 @@ public class ThirdPersonMovement : MonoBehaviour {
         direction = Quaternion.AngleAxis(cam.transform.rotation.eulerAngles.y, Vector3.up) * direction;
 
         //apply force if less than maxspeed
-        if (RB.velocity.magnitude <= maxSpeed && !hammerWeapon.isEnemyGrappling) {
+        if (RB.velocity.magnitude <= maxSpeed && !hammerWeapon.isEnemyGrappling && !hammerWeapon.isDirectGrappling) {
             RB.velocity += direction.normalized * speed;
         }
     }
@@ -49,33 +52,38 @@ public class ThirdPersonMovement : MonoBehaviour {
 
         //Jumping raycasting
         jumpCooldown++;
-        bool isGrounded = Physics.Raycast(transform.position, Vector3.down, raycastDistance, groundLayer);
-        if (Input.GetButtonDown("Jump") && isGrounded && jumpCooldown >= 15) {
-            RB.velocity += Vector3.up * jumpForce;
+        if (Input.GetButtonDown("Jump") && Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit2, raycastDistance, groundLayer) && jumpCooldown >= 15) {
+            if (hit2.transform.gameObject.CompareTag("Ramp")) {
+                RB.velocity += Vector3.up * jumpForce * 2;
+            }
+
+            else {
+                RB.velocity += Vector3.up * jumpForce;
+            }
             jumpCooldown = 0;
         }
     }
 
     //update camera position
     void LateUpdate() {
-        cameraFollow.position = transform.position + new Vector3(0, 0.5f, 0) + offset;
+        cameraFollow.position = transform.position + new Vector3(0, 0.5f, 0);
     }
 
-    public IEnumerator cameraShake(float duration, float magnitude) {
+    //coroutine for adding camerashake using an offset vector
+    public IEnumerator CameraShake(float duration, float magnitude) {
 
         float elapsed = 0f;
 
         while (elapsed < duration) {
-            float x = Random.Range(-1f, 1f) * magnitude;
-            float y = Random.Range(-1f, 1f) * magnitude;
+            float x = UnityEngine.Random.Range(-1f, 1f) * magnitude;
+            float y = UnityEngine.Random.Range(-1f, 1f) * magnitude;
 
-            offset = Vector3.SmoothDamp(offset, new Vector3(x, y, 0f), ref velocity, 0.1f);
+            cameraFollow.position += new Vector3(x, y, 0f);
 
             elapsed += Time.deltaTime;
 
             yield return null;
         }
-
-        offset = Vector3.SmoothDamp(offset, Vector3.zero, ref velocity, 0.1f);
+        offset = Vector3.zero;
     }
 }

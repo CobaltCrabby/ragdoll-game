@@ -8,6 +8,8 @@ TagManager:
   - Falling Blocks
   - Hammer
   - Shootable
+  - Ramp
+  - Direct Grapple
   layers:
   - Default
   - TransparentFX

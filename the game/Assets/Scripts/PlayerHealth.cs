@@ -7,11 +7,13 @@ public class PlayerHealth : MonoBehaviour
 {
     private float hp, currentHp;
     private Slider slider;
+    private Animator animator;
 
     void Start() {
         hp = 5f;
         currentHp = 5f;
-        slider = GetComponentInChildren<Slider>();    
+        slider = GetComponentInChildren<Slider>();
+        animator = slider.GetComponent<Animator>();
     }
 
     void Update() {
@@ -22,7 +24,8 @@ public class PlayerHealth : MonoBehaviour
         slider.value = currentHp;   
     }
 
-    public void takeDamage(int damage) {
+    public void TakeDamage(int damage) {
         hp -= damage;
+        animator.SetTrigger("Size");
     }
 }
