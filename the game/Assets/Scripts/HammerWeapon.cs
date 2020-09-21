@@ -82,7 +82,7 @@ public class HammerWeapon : MonoBehaviour
                 armRB.AddForce(direction * enemyGrappleForce);
             }
 
-            if (Vector3.Distance(armRB.position, grapplePoint) <= 2) {
+            if (Vector3.Distance(armRB.position, grapplePoint) <= 1f) {
                 isDirectGrappling = false;
                 ResetVelocity();
                 AddGravity();
@@ -216,7 +216,6 @@ public class HammerWeapon : MonoBehaviour
         particles.Play();
         if (enemyPosition != null && Vector3.Distance(enemyPosition.position, transform.position) <= 2f) {
             armRB.AddForce((enemyPosition.position - transform.position).normalized * hammerForce);
-            print("teeeeeest");
         }
 
         else {
@@ -231,6 +230,7 @@ public class HammerWeapon : MonoBehaviour
         throwPosition = transform.position;
         isThrowing = true;
         throwTime = 0;
+        armRB.AddForce(throwDirection * hammerForce);
     }
 
     void RemoveGravity() {

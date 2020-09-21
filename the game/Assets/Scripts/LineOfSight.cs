@@ -10,6 +10,7 @@ public class LineOfSight : MonoBehaviour {
     public float bulletSpeed, bulletLife, gunRange, losRange, bulletSpread;
     public ParticleSystem particles;
     public GameObject bullet;
+    public NavMeshAgent navMeshAgent;
 
     private LayerMask sightLayer = 1 << 8 | 1 << 9;
     private Vector3 velocity;
@@ -18,7 +19,6 @@ public class LineOfSight : MonoBehaviour {
     private bool didSee;
     private GameObject instBullet;
     private Enemy1Script enemy1Script;
-    private NavMeshAgent navMeshAgent;
     private Animator animator;
 
     void Start() {
@@ -59,7 +59,7 @@ public class LineOfSight : MonoBehaviour {
                 navMeshAgent.isStopped = true;
                 animator.SetTrigger("Isn't Walking");
             }
-            else if (playerDist > gunRange) {
+            else if (playerDist > gunRange && navMeshAgent.CalculatePath(hips.position, navMeshAgent.path)) {
                 navMeshAgent.destination = hips.position;
                 navMeshAgent.isStopped = false;
                 animator.SetTrigger("Is Walking");

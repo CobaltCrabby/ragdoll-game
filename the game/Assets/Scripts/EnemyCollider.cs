@@ -17,6 +17,7 @@ public class EnemyCollider : MonoBehaviour
         enemy1Script = GetComponentInParent<Enemy1Script>();
         TPM = FindObjectOfType<ThirdPersonMovement>();
         hips = TPM.gameObject.GetComponent<Rigidbody>();
+
         if (SceneManager.GetActiveScene().buildIndex == 0) {
             foreach (Rigidbody rb in enemy1Script.rigidbodys) {
                 rb.isKinematic = false;

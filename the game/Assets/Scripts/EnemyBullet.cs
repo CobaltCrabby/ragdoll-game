@@ -5,6 +5,7 @@ public class EnemyBullet : MonoBehaviour {
     public float speed;
     public float bulletLife = 100;
     public float bulletSpread;
+    public LayerMask canGetShot;
     private float bulletTimer = 0;
 
     private VignetteAnimate vignette;
@@ -42,7 +43,7 @@ public class EnemyBullet : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.tag == "Shootable" && !didCollide) {
+        if (other.gameObject.layer == canGetShot && !didCollide) {
 
             didCollide = true;
             if (other.gameObject.layer != 9) {
