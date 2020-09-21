@@ -9,7 +9,7 @@ public class HammerWeapon : MonoBehaviour
     public LayerMask whatIsGrapple, enemyLayer, whatIsDirectGrapple;
     public Transform gunTip, cam, player, rightHand;
     public float hammerForce, enemyGrappleForce, maxForce, retractingSpeed;
-    public bool isEnemyGrappling, isRegularGrappling, isRetracting, isDirectGrappling, isThrowing, hitThrow;
+    public bool isEnemyGrappling, isRegularGrappling, isRetracting, isDirectGrappling, isThrowing;
     public Rigidbody armRB;
     public Rigidbody[] RB;
     public ParticleSystem particles;
@@ -17,7 +17,6 @@ public class HammerWeapon : MonoBehaviour
     public Material hammerGreen, gemGreen, hammerBlue, gemBlue, hammerRed, gemRed;
     public GameObject gem, hammerMain;
     public Collider hammerHandle, hammerCube;
-
 
     private ThirdPersonMovement TPM;
     private LineRenderer lineRenderer;
@@ -90,7 +89,7 @@ public class HammerWeapon : MonoBehaviour
         }
 
         //Color Change Ifs
-        if (Input.GetKeyDown("f") && !isDirectGrappling && !isEnemyGrappling && !isRegularGrappling) {
+        if (Input.GetKeyDown("f") && !isDirectGrappling && !isEnemyGrappling && !isRegularGrappling && !isThrowing) {
             if (currentHammer == hammerGreen) {
                 nextGem = gemBlue;
                 nextHammer = hammerBlue;
@@ -132,8 +131,10 @@ public class HammerWeapon : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(throwDirection) * Quaternion.Euler(180, 90, 270), throwTime * 5);
             }
 
-            else if (!throwingForward && throwTime < 1) {
-                transform.position = Vector3.Lerp(throwPosition, rightHand.position, throwTime);
+            else if (!throwingForward) {
+                if (throwTime < 1 || isThrowing) {
+                    transform.position = Vector3.Lerp(throwPosition, rightHand.position, throwTime);
+                }
             }
 
             if (throwTime >= 1) {
@@ -147,7 +148,7 @@ public class HammerWeapon : MonoBehaviour
                     hammerCube.enabled = false;
                 }
 
-                else if (!throwingForward || hitThrow) {
+                else if (!throwingForward) {
 
                     transform.parent = armRB.transform.GetChild(0);
                     throwTime = 1f;
@@ -158,9 +159,7 @@ public class HammerWeapon : MonoBehaviour
                     transform.localPosition = Vector3.SmoothDamp(transform.localPosition, new Vector3(-0.00013f, 0.00696f, -0.0001f), ref hammerVelocityRef, 0.05f);
                     //transform.eulerAngles = Vector3.SmoothDamp(transform.eulerAngles, rightHand.eulerAngles + new Vector3(180, 0, 0), ref hammerVelocityRef, 0.05f);
                     transform.rotation = armRB.rotation * Quaternion.Euler(180, 0, 0);
-
-                    isThrowing = true;
-                    hitThrow = false;
+                    StartCoroutine(stopThrow());
                 }    
             }
             throwTime += Time.deltaTime;
@@ -224,13 +223,15 @@ public class HammerWeapon : MonoBehaviour
     }
 
     void ThrowHammer() {
-        transform.parent = null;
-        throwingForward = true;
-        throwDirection = Vector3.Normalize((cam.position + cam.forward * 20) - transform.position);
-        throwPosition = transform.position;
-        isThrowing = true;
-        throwTime = 0;
-        armRB.AddForce(throwDirection * hammerForce);
+        if (!isThrowing) {
+            transform.parent = null;
+            throwingForward = true;
+            throwDirection = Vector3.Normalize((cam.position + cam.forward * 20) - transform.position);
+            throwPosition = transform.position;
+            isThrowing = true;
+            throwTime = 0;
+            armRB.AddForce(throwDirection * hammerForce);
+        }
     }
 
     void RemoveGravity() {
@@ -273,5 +274,10 @@ public class HammerWeapon : MonoBehaviour
         }
 
         return bestTarget;
+    }
+
+    IEnumerator stopThrow() {
+        yield return new WaitForSeconds(0.05f);
+        isThrowing = false;
     }
 }

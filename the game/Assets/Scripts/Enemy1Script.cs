@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Animations;
-using UnityEditor.Experimental.AssetImporters;
-using UnityEngine;
-using UnityEngine.AI;
+﻿using UnityEngine;
 
 public class Enemy1Script : MonoBehaviour
 {

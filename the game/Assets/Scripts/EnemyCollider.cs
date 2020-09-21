@@ -44,7 +44,6 @@ public class EnemyCollider : MonoBehaviour
     void Update() {
         if (Vector3.Distance(transform.position, hammerWeapon.transform.position) <= 0.2 && !isDead && hammerWeapon.isThrowing) {
             KillEnemy();
-            hammerWeapon.hitThrow = true;
             isDead = true;
         }
     }
