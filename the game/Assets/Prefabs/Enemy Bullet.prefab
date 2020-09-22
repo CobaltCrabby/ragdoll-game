@@ -4805,6 +4805,9 @@ MonoBehaviour:
   speed: 0.5
   bulletLife: 100
   bulletSpread: 10
+  canGetShot:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!65 &1622015069
 BoxCollider:
   m_ObjectHideFlags: 0

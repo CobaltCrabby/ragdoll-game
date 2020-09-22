@@ -83,8 +83,8 @@ public class HammerWeapon : MonoBehaviour
 
             if (Vector3.Distance(armRB.position, grapplePoint) <= 1f) {
                 isDirectGrappling = false;
-                ResetVelocity();
                 AddGravity();
+                ResetVelocity();
             }
         }
 
@@ -155,11 +155,12 @@ public class HammerWeapon : MonoBehaviour
                     
                     hammerHandle.enabled = true;
                     hammerCube.enabled = true;
-                    
-                    transform.localPosition = Vector3.SmoothDamp(transform.localPosition, new Vector3(-0.00013f, 0.00696f, -0.0001f), ref hammerVelocityRef, 0.05f);
+
+                    transform.localPosition = new Vector3(-0.00013f, 0.00696f, -0.0001f);
                     //transform.eulerAngles = Vector3.SmoothDamp(transform.eulerAngles, rightHand.eulerAngles + new Vector3(180, 0, 0), ref hammerVelocityRef, 0.05f);
                     transform.rotation = armRB.rotation * Quaternion.Euler(180, 0, 0);
-                    StartCoroutine(stopThrow());
+                    //StartCoroutine(stopThrow());
+                    isThrowing = false;
                 }    
             }
             throwTime += Time.deltaTime;
@@ -277,7 +278,7 @@ public class HammerWeapon : MonoBehaviour
     }
 
     IEnumerator stopThrow() {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.5f);
         isThrowing = false;
     }
 }

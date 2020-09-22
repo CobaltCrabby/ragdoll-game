@@ -43,21 +43,19 @@ public class EnemyBullet : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.layer == canGetShot && !didCollide) {
-
-            didCollide = true;
-            if (other.gameObject.layer != 9) {
-                particles.Play();
-
-            }
+        if (other.gameObject.layer == 9 && !didCollide) {
             Destroy(bullet.gameObject);
+            didCollide = true;
+            playerHealth.TakeDamage(1);
 
-            if (other.gameObject.layer == 9 || Vector3.Distance(transform.position, TPM.transform.position) < 0.4f) {
-                didCollide = true;
-                playerHealth.TakeDamage(1);
-                StartCoroutine(TPM.CameraShake(5f, 20f));
-                StartCoroutine(vignette.VignetteCoroutine());
-            }
+            StartCoroutine(TPM.CameraShake(5f, 20f));
+            StartCoroutine(vignette.VignetteCoroutine());
+        }
+
+        else if (other.gameObject.layer == 8) {
+            particles.Play();
+            Destroy(bullet.gameObject);
+            didCollide = true;
         }
     }
 }
