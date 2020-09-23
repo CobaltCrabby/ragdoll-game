@@ -80,12 +80,6 @@ public class HammerWeapon : MonoBehaviour
             if (armRB.velocity.magnitude <= maxForce) { 
                 armRB.AddForce(direction * enemyGrappleForce);
             }
-
-            if (Vector3.Distance(armRB.position, grapplePoint) <= 1f) {
-                isDirectGrappling = false;
-                AddGravity();
-                ResetVelocity();
-            }
         }
 
         //Color Change Ifs
@@ -190,10 +184,10 @@ public class HammerWeapon : MonoBehaviour
             float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
 
             joint.maxDistance = distanceFromPoint * 0.17f;
-            joint.minDistance = distanceFromPoint * 0.07f;
+            joint.minDistance = 0;
 
-            joint.spring = 50f;
-            joint.damper = 27f;
+            joint.spring = 70f;
+            joint.damper = 35f;
             joint.massScale = 1.2f;
             joint.anchor += new Vector3(0f, 0.005f, 0f);
 
