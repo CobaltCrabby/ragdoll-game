@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 952888620}
   - component: {fileID: 952888622}
   - component: {fileID: 952888621}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trail
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -5057,7 +5057,7 @@ GameObject:
   - component: {fileID: 5970120843524567182}
   - component: {fileID: 5130068975988380323}
   - component: {fileID: 128850901232880434}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.001
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -5137,7 +5137,7 @@ GameObject:
   - component: {fileID: 139041978637703238}
   - component: {fileID: 4457771298485439577}
   - component: {fileID: 1994348970419762870}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -5230,7 +5230,7 @@ GameObject:
   - component: {fileID: 4031401834162420722}
   - component: {fileID: 6014031356722084146}
   - component: {fileID: 599049868157469081}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.001
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -5309,7 +5309,7 @@ GameObject:
   - component: {fileID: 2640482831484954906}
   - component: {fileID: 4879628033735509747}
   - component: {fileID: 2081939229053898478}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.002
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -5388,7 +5388,7 @@ GameObject:
   - component: {fileID: 6968698802583987095}
   - component: {fileID: 4837284017978518668}
   - component: {fileID: 5429365343745127018}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Torus.004
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -5561,7 +5561,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000064610504, y: 0.0029668296, z: -0.0000000027939677}
+  m_ConnectedAnchor: {x: 0.0000000021827873, y: 0.0029668207, z: -9.313226e-10}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -6067,7 +6067,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0018450676, y: 0.003734796, z: 0.000102628095}
+  m_ConnectedAnchor: {x: 0.0018450742, y: 0.0037347958, z: 0.00010262815}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -6283,7 +6283,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0007269315, y: 0.001242042, z: -0.0000023398313}
+  m_ConnectedAnchor: {x: 0.0007269308, y: 0.0012420467, z: -0.0000023398313}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -6486,7 +6486,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.859917e-10, y: 0.0051310356, z: 0.00060850783}
+  m_ConnectedAnchor: {x: 1.928129e-10, y: 0.0051310356, z: 0.00060850783}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -6749,7 +6749,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 7.275958e-12, y: 0.002593901, z: -2.3283062e-10}
+  m_ConnectedAnchor: {x: 2.2737368e-12, y: 0.0025939038, z: -2.3283062e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -6858,7 +6858,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0018451437, y: 0.0037346112, z: 0.00010257443}
+  m_ConnectedAnchor: {x: -0.001845152, y: 0.0037346086, z: 0.000102573904}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -7059,7 +7059,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000000045401976, y: 0.0029668175, z: -0.0000000026775522}
+  m_ConnectedAnchor: {x: -0.000000002590241, y: 0.0029668205, z: -0.000000002211891}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -7230,7 +7230,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000000038489723, y: 0.004761859, z: -1.4550353e-10}
+  m_ConnectedAnchor: {x: -1.3460488e-10, y: 0.004761857, z: -1.0185247e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -7369,7 +7369,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000723363, y: 0.0012401274, z: -0.00000042503228}
+  m_ConnectedAnchor: {x: -0.0007233623, y: 0.0012401328, z: -0.0000004244502}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -7478,7 +7478,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000069594464, y: 0.004761854, z: 3.346868e-10}
+  m_ConnectedAnchor: {x: -5.8207602e-11, y: 0.004761858, z: 1.45516e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -8560,7 +8560,7 @@ GameObject:
   - component: {fileID: 2506793434739098539}
   - component: {fileID: 2354600988090795558}
   - component: {fileID: 2031759805234790459}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Torus.001
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -8639,7 +8639,7 @@ GameObject:
   - component: {fileID: 4100113202839333842}
   - component: {fileID: 5399993192711844842}
   - component: {fileID: 3900168859344629841}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -8718,7 +8718,7 @@ GameObject:
   - component: {fileID: 3912245327736910610}
   - component: {fileID: 2308603318773862758}
   - component: {fileID: 685172032393322492}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -8797,7 +8797,7 @@ GameObject:
   - component: {fileID: 6452176127362848173}
   - component: {fileID: 2339599734289376051}
   - component: {fileID: 6156948988734406636}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -8880,7 +8880,7 @@ GameObject:
   - component: {fileID: 7399636556060464245}
   - component: {fileID: 7399636556060464243}
   - component: {fileID: 371768002}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: hammer3
   m_TagString: Shootable
   m_Icon: {fileID: 0}
@@ -8938,7 +8938,7 @@ MonoBehaviour:
   player: {fileID: 4595276845891087697}
   rightHand: {fileID: 4594951318061818047}
   hammerForce: 2000
-  enemyGrappleForce: 150
+  enemyGrappleForce: 200
   maxForce: 20
   retractingSpeed: 0.01
   isEnemyGrappling: 0
@@ -8946,7 +8946,6 @@ MonoBehaviour:
   isRetracting: 0
   isDirectGrappling: 0
   isThrowing: 0
-  hitThrow: 0
   armRB: {fileID: 0}
   RB:
   - {fileID: 4596907010181012043}

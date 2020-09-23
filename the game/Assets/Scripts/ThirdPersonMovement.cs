@@ -57,8 +57,12 @@ public class ThirdPersonMovement : MonoBehaviour {
                 RB.velocity += Vector3.up * jumpForce * 2;
             }
 
+            else if (hammerWeapon.isDirectGrappling) {
+                RB.velocity += Vector3.up * 2;
+            }
+
             else {
-                RB.velocity += Vector3.up * jumpForce;
+                RB.velocity += Vector3.up;
             }
             jumpCooldown = 0;
         }

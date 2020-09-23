@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: -0.25, z: -6}
+  m_FollowOffset: {x: 0, y: -0.25, z: -7}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -150,7 +150,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707267718819183134}
-  m_LocalRotation: {x: -0.020819774, y: 0.000000017202654, z: 3.582329e-10, w: 0.9997833}
+  m_LocalRotation: {x: -0.01784858, y: -0.000000029855716, z: -5.32967e-10, w: 0.99984074}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: -0.25, z: -6}
+  m_FollowOffset: {x: 0, y: -0.25, z: -7}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -350,7 +350,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707267718992990442}
-  m_LocalRotation: {x: -0.05712312, y: 0.000000017178285, z: 9.828822e-10, w: 0.99836713}
+  m_LocalRotation: {x: -0.054155994, y: 1e-45, z: -0, w: 0.99853253}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -424,7 +424,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707267719416104464}
-  m_LocalRotation: {x: -0.039001886, y: -0.0000000021491613, z: -8.388515e-11, w: 0.99923915}
+  m_LocalRotation: {x: -0.03603225, y: 0.000000017247272, z: 6.2186184e-10, w: 0.99935067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -600,11 +600,11 @@ MonoBehaviour:
   m_SplineCurvature: 0.2
   m_Orbits:
   - m_Height: 3
-    m_Radius: 4
+    m_Radius: 1.5
   - m_Height: -0.25
-    m_Radius: 6
+    m_Radius: 7
   - m_Height: -1
-    m_Radius: 4
+    m_Radius: 1
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 707267718819183121}
@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: -0.25, z: -6}
+  m_FollowOffset: {x: 0, y: -0.25, z: -7}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
