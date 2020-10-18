@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     }
 
     void Start(){
-        bulletTimer = 0f;
+        bulletLife = 40f;
         cam = FindObjectOfType<Camera>();
         spreadX = UnityEngine.Random.Range(-spread, spread);
         spreadZ = UnityEngine.Random.Range(-spread, spread);

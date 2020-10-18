@@ -6,7 +6,7 @@ using System.Linq;
 public class HammerWeapon : MonoBehaviour
 {
     public Vector3 grapplePoint;
-    public LayerMask whatIsGrapple, enemyLayer, whatIsDirectGrapple;
+    public LayerMask whatIsGrapple, enemyLayer;
     public Transform gunTip, cam, player, rightHand;
     public float hammerForce, enemyGrappleForce, maxForce, retractingSpeed;
     public bool isEnemyGrappling, isRegularGrappling, isRetracting, isDirectGrappling, isThrowing;
@@ -31,6 +31,7 @@ public class HammerWeapon : MonoBehaviour
         armRB = player.gameObject.GetComponent<Rigidbody>();
         lineRenderer = GetComponent<LineRenderer>();
         TPM = FindObjectOfType<ThirdPersonMovement>();
+        cam = FindObjectOfType<Camera>().transform;
     }
 
     void Start() {
@@ -242,7 +243,7 @@ public class HammerWeapon : MonoBehaviour
     }
 
     public void ResetVelocity() {
-        foreach (Rigidbody rb in TPM.rigidbodies) {
+        foreach (Rigidbody rb in RB) {
             rb.velocity = Vector3.zero;
         }
     }
@@ -274,5 +275,13 @@ public class HammerWeapon : MonoBehaviour
     IEnumerator stopThrow() {
         yield return new WaitForSeconds(0.5f);
         isThrowing = false;
+    }
+
+    public IEnumerator doneDirectGrapple() {
+        //yield return new WaitForSeconds(0.2f);
+        AddGravity();
+        ResetVelocity();
+        isDirectGrappling = false;
+        yield return null;
     }
 }

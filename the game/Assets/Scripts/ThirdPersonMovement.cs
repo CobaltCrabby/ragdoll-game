@@ -12,6 +12,8 @@ public class ThirdPersonMovement : MonoBehaviour {
     public Vector3 offset;
     public Rigidbody[] rigidbodies;
     public bool ifHammer;
+
+    private FollowSphereMovement followSphereMovement;
     private HammerWeapon hammerWeapon;
     private Animator blocksAnim;
     private Rigidbody RB;
@@ -19,10 +21,12 @@ public class ThirdPersonMovement : MonoBehaviour {
     private LayerMask groundLayer;
     private Camera cam;
     private Vector3 velocity, zeroVelocity;
+    private bool isJump;
 
-    void Start(){
+    void Start() {
         Cursor.lockState = CursorLockMode.Locked;
         groundLayer = 1 << 8;
+        followSphereMovement = FindObjectOfType<FollowSphereMovement>();
         hammerWeapon = FindObjectOfType<HammerWeapon>();
         RB = GetComponent<Rigidbody>();
         cam = FindObjectOfType<Camera>();
@@ -38,12 +42,14 @@ public class ThirdPersonMovement : MonoBehaviour {
         direction = Quaternion.AngleAxis(cam.transform.rotation.eulerAngles.y, Vector3.up) * direction;
 
         //apply force if less than maxspeed
-        if (RB.velocity.magnitude <= maxSpeed && !hammerWeapon.isEnemyGrappling && !hammerWeapon.isDirectGrappling) {
+        if (RB.velocity.magnitude <= maxSpeed && !hammerWeapon.isEnemyGrappling && !hammerWeapon.isDirectGrappling && !isJump) {
             RB.velocity += direction.normalized * speed;
         }
     }
 
     void Update() {
+        followSphereMovement.transform.position = transform.position;
+
         //Falling Blocks raycasting
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit) && hit.transform.gameObject.tag == "Falling Blocks") {
             blocksAnim = hit.transform.gameObject.GetComponent<Animator>();
@@ -53,7 +59,12 @@ public class ThirdPersonMovement : MonoBehaviour {
         //Jumping raycasting
         jumpCooldown++;
         if (Input.GetButtonDown("Jump") && Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit2, raycastDistance, groundLayer) && jumpCooldown >= 15) {
-            if (hit2.transform.gameObject.CompareTag("Ramp")) {
+            
+            followSphereMovement.enabled = true;
+            followSphereMovement.jump();
+            GetComponent<ThirdPersonMovement>().enabled = false;
+            
+            /*if (hit2.transform.gameObject.CompareTag("Ramp")) {
                 RB.velocity += Vector3.up * jumpForce * 2;
             }
 
@@ -62,9 +73,8 @@ public class ThirdPersonMovement : MonoBehaviour {
             }
 
             else {
-                RB.velocity += Vector3.up;
-            }
-            jumpCooldown = 0;
+                RB.velocity += Vector3.up * jumpForce;
+            }*/
         }
     }
 
@@ -89,5 +99,10 @@ public class ThirdPersonMovement : MonoBehaviour {
             yield return null;
         }
         offset = Vector3.zero;
+    }
+
+    public IEnumerator TurnOffJump() {
+        yield return new WaitForSeconds(0.4f);
+        isJump = false;
     }
 }
